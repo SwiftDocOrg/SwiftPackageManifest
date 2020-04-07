@@ -1,5 +1,8 @@
 # SwiftPackageManifest
 
+![CI][ci badge]
+[![Documentation][documentation badge]][documentation]
+
 A package that provides information about a Swift package,
 as encoded by running `swift package dump-package`
 in a directory containing a valid `Package.swift` manifest.
@@ -51,3 +54,7 @@ MIT
 ## Contact
 
 Mattt ([@mattt](https://twitter.com/mattt))
+
+[ci badge]: https://github.com/SwiftDocOrg/SwiftPackageManifest/workflows/CI/badge.svg
+[documentation badge]: https://github.com/SwiftDocOrg/SwiftPackageManifest/workflows/Documentation/badge.svg
+[documentation]: https://github.com/SwiftDocOrg/SwiftPackageManifest/wiki
