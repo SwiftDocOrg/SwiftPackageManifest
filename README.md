@@ -18,6 +18,27 @@ reading generated Swift package manifests in JSON format.
 > and any changes to this format between Swift releases
 > may cause decoding to fail.
 
+## Usage
+
+In a directory containing a valid `Package.swift` manifest,
+run the following command to generate a JSON representation:
+
+```terminal
+$ swift package dump-package > Package.json
+```
+
+Read the contents of that file
+and use `JSONDecoder` to deserialize a `Package` object from it:
+
+```swift
+import Foundation
+import SwiftPackageManifest
+
+let json = try! Data(contentsOfFile: "path/to/Package.json", options: [])
+let decoder = JSONDecoder()
+let package = try decoder.decode(Package.self, from: json)
+```
+
 ## Installation
 
 ### Swift Package Manager
