@@ -31,6 +31,9 @@ public struct Package: Equatable {
 
             /// A branch.
             case branch([String])
+
+            /// An exact version
+            case exact([String])
         }
 
         /// The name of the dependency.
@@ -135,6 +138,7 @@ extension Package.Dependency.Requirement: Equatable {
     public static func == (lhs: Package.Dependency.Requirement, rhs: Package.Dependency.Requirement) -> Bool {
         switch (lhs, rhs) {
         case let (.revision(l), .revision(r)),
+             let (.exact(l), .exact(r)),
              let (.branch(l), .branch(r)):
             return l == r
         case let (.range(l), .range(r)):
@@ -156,6 +160,7 @@ extension Package.Dependency.Requirement: Decodable {
         case revision
         case range
         case branch
+        case exact
 
         enum NestedRangeCodingKeys: String, CodingKey {
           case lowerBound
@@ -182,6 +187,8 @@ extension Package.Dependency.Requirement: Decodable {
             self = .range(ranges)
         } else if container.contains(.branch) {
             self = try .branch(container.decode([String].self, forKey: .branch))
+        } else if container.contains(.exact) {
+            self = try .exact(container.decode([String].self, forKey: .exact))
         } else {
             let context = DecodingError.Context(codingPath: container.codingPath, debugDescription: "unknown or invalid requirement")
             throw DecodingError.dataCorrupted(context)

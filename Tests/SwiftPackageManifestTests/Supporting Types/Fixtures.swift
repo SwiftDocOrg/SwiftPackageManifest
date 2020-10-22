@@ -289,4 +289,129 @@ enum Fixtures {
         }
     }
     """#.data(using: .utf8)!
+
+    /// Generated from https://github.com/blaquez/xcparse/blob/61bfe78c55e2e0fc2bc3d3d49add3dbd3829a56b/Package.swift
+    /// using `Apple Swift version 5.2.4 (swiftlang-1103.0.32.9 clang-1103.0.32.53)`
+    /// Contains 'exact' version requirement
+    static let xcparseDump = #"""
+    {
+        "cLanguageStandard" : null,
+        "cxxLanguageStandard" : null,
+        "dependencies" : [
+            {
+            "name" : "swift-package-manager",
+            "requirement" : {
+                "exact" : [
+                "0.5.0"
+                ]
+            },
+            "url" : "https:\/\/github.com\/apple\/swift-package-manager.git"
+            }
+        ],
+        "name" : "xcparse",
+        "pkgConfig" : null,
+        "platforms" : [
+            {
+            "platformName" : "macos",
+            "version" : "10.13"
+            }
+        ],
+        "products" : [
+            {
+            "name" : "xcparse",
+            "targets" : [
+                "xcparse"
+            ],
+            "type" : {
+                "executable" : null
+            }
+            },
+            {
+            "name" : "XCParseCore",
+            "targets" : [
+                "XCParseCore"
+            ],
+            "type" : {
+                "library" : [
+                "automatic"
+                ]
+            }
+            }
+        ],
+        "providers" : null,
+        "swiftLanguageVersions" : [
+            "5"
+        ],
+        "targets" : [
+            {
+            "dependencies" : [
+                {
+                "byName" : [
+                    "XCParseCore"
+                ]
+                },
+                {
+                "byName" : [
+                    "SPMUtility"
+                ]
+                }
+            ],
+            "exclude" : [
+
+            ],
+            "name" : "xcparse",
+            "resources" : [
+
+            ],
+            "settings" : [
+
+            ],
+            "type" : "regular"
+            },
+            {
+            "dependencies" : [
+                {
+                "byName" : [
+                    "SPMUtility"
+                ]
+                }
+            ],
+            "exclude" : [
+
+            ],
+            "name" : "XCParseCore",
+            "resources" : [
+
+            ],
+            "settings" : [
+
+            ],
+            "type" : "regular"
+            },
+            {
+            "dependencies" : [
+                {
+                "byName" : [
+                    "xcparse"
+                ]
+                }
+            ],
+            "exclude" : [
+
+            ],
+            "name" : "xcparseTests",
+            "resources" : [
+
+            ],
+            "settings" : [
+
+            ],
+            "type" : "test"
+            }
+        ],
+        "toolsVersion" : {
+            "_version" : "5.1.0"
+        }
+    }
+    """#.data(using: .utf8)!
 }
