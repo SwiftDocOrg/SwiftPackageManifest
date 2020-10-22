@@ -38,4 +38,14 @@ final class PackageDecodingTests: XCTestCase {
         XCTAssertEqual(package.targets[4].resources, [])
         XCTAssertEqual(package.targets[4].settings, [])
     }
+
+    func testExactDependency() throws {
+        let decoder = JSONDecoder()
+        let package = try decoder.decode(Package.self, from: Fixtures.xcparseDump)
+
+        XCTAssertEqual(package.toolsVersion, "5.1.0")
+        XCTAssertEqual(package.dependencies.count, 1)
+        XCTAssertEqual(package.dependencies[0].url, "https://github.com/apple/swift-package-manager.git")
+        XCTAssertEqual(package.dependencies[0].requirement, .exact(["0.5.0"]))
+    }
 }
